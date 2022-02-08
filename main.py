@@ -358,14 +358,14 @@ def candlestick1(input_value):
 
     data.add_trace(go.Scatter(
         x=df1.index[-20:],
-        y=df1['BBL_20_2.0'][-10:],
+        y=df1['BBL_20_2.0'][-20:],
         name='BBL',
         mode='lines',
         line=dict(color='orange', width=3), hoverinfo='none', yaxis="y3"))
 
     data.add_trace(go.Scatter(
         x=df1.index[-20:],
-        y=df1['BBU_20_2.0'][-10:],
+        y=df1['BBU_20_2.0'][-20:],
         name='BBU',
         mode='lines',
         line=dict(color='orange', width=3), hoverinfo='none', yaxis="y3"))
@@ -388,7 +388,7 @@ def candlestick1(input_value):
 
     data.add_trace(go.Scatter(
         x=df1.index[-20:],
-        y=df1['PSARl_0.02_0.2'][-16:],
+        y=df1['PSARl_0.02_0.2'][-20:],
         name='PSARL',
         mode='markers', marker=dict(
             color="green", opacity=1,
@@ -396,7 +396,7 @@ def candlestick1(input_value):
 
     data.add_trace(go.Scatter(
         x=df1.index[-20:],
-        y=df1['PSARs_0.02_0.2'][-16:],
+        y=df1['PSARs_0.02_0.2'][-20:],
         name='PSARS',
         mode='markers', marker=dict(
             color="red", opacity=1,
