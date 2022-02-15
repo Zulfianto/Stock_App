@@ -237,8 +237,8 @@ def candlestick(input_value):
         mode='lines',
         line=dict(color='blue', width=3), yaxis="y1"))
 
-    inc = df['MACDh_12_26_9'] > 0
-    dec = df['MACDh_12_26_9'] < 0
+    inc = df['MACDh_12_26_9'][-80:] > 0
+    dec = df['MACDh_12_26_9'][-80:] < 0
     
     data.add_trace(go.Bar(
         x=df.index[-80:][inc],
@@ -499,8 +499,8 @@ def candlestick1(input_value):
         mode='lines',
         line=dict(color='blue', width=3), yaxis="y1"))
     
-    inc = df['MACDh_12_26_9'] > 0
-    dec = df['MACDh_12_26_9'] < 0
+    inc = df['MACDh_12_26_9'][-60:] > 0
+    dec = df['MACDh_12_26_9'][-60:] < 0
     
     data.add_trace(go.Bar(
         x=df.index[-60:][inc],
