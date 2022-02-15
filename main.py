@@ -69,6 +69,15 @@ def data_frame2(input_value):
     df['PSARs_0.02_0.2'] = df.ta.psar(af0=0.02, af=0.02, max_af=0.2)['PSARs_0.02_0.2']
     return df
 
+def data_frame3(input_value):
+    df = yf.download(tickers=input_value, period="6d", interval='30m')
+    df['BBL_20_2.0'] = df.ta.bbands(length=20)['BBL_20_2.0']
+    df['BBU_20_2.0'] = df.ta.bbands(length=20)['BBU_20_2.0']
+    df['RSI'] = df.ta.rsi(length=14)
+    df['PSARl_0.02_0.2'] = df.ta.psar(af0=0.02, af=0.02, max_af=0.2)['PSARl_0.02_0.2']
+    df['PSARs_0.02_0.2'] = df.ta.psar(af0=0.02, af=0.02, max_af=0.2)['PSARs_0.02_0.2']
+    return df
+
 warnings.simplefilter('ignore', UserWarning)
 
 def candlestick(input_value):
@@ -228,12 +237,22 @@ def candlestick(input_value):
         mode='lines',
         line=dict(color='blue', width=3), yaxis="y1"))
 
+    inc = df['MACDh_12_26_9'] > 0
+    dec = df['MACDh_12_26_9'] < 0
+    
     data.add_trace(go.Bar(
-        x=df.index[-80:],
-        y=df['MACDh_12_26_9'][-80:],
+        x=df.index[-80:][inc],
+        y=df['MACDh_12_26_9'][-80:][inc],
+        name='MACDh', marker={'color': 'green'},
+        yaxis="y1"))
+    
+    data.add_trace(go.Bar(
+        x=df.index[-80:][dec],
+        y=df['MACDh_12_26_9'][-80:][dec],
         name='MACDh', marker={'color': 'red'},
         yaxis="y1"))
 
+    
     data.add_trace(go.Scatter(
         x=df.index[-80:],
         y=df['MACDs_12_26_9'][-80:],
@@ -311,6 +330,7 @@ def candlestick(input_value):
 def candlestick1(input_value):
     df = data_frame1(input_value=stock)
     df1 = data_frame2(input_value=stock)
+    df2 = data_frame3(input_value=stock)
     data = go.Figure()
 
     data.add_trace(go.Candlestick(
@@ -369,6 +389,20 @@ def candlestick1(input_value):
         name='BBU',
         mode='lines',
         line=dict(color='orange', width=3), hoverinfo='none', yaxis="y3"))
+    
+    data.add_trace(go.Scatter(
+        x=df2.index[-10:],
+        y=df2['BBL_20_2.0'][-10:],
+        name='BBL',
+        mode='lines',
+        line=dict(color='red', width=3), hoverinfo='none', yaxis="y3"))
+
+    data.add_trace(go.Scatter(
+        x=df2.index[-10:],
+        y=df2['BBU_20_2.0'][-10:],
+        name='BBU',
+        mode='lines',
+        line=dict(color='red', width=3), hoverinfo='none', yaxis="y3"))
 
     data.add_trace(go.Scatter(
         x=df.index[-60:],
@@ -464,13 +498,22 @@ def candlestick1(input_value):
         name='mACD',
         mode='lines',
         line=dict(color='blue', width=3), yaxis="y1"))
-
+    
+    inc = df['MACDh_12_26_9'] > 0
+    dec = df['MACDh_12_26_9'] < 0
+    
     data.add_trace(go.Bar(
-        x=df.index[-60:],
-        y=df['MACDh_12_26_9'][-60:],
+        x=df.index[-60:][inc],
+        y=df['MACDh_12_26_9'][-60:][inc],
+        name='MACDh', marker={'color': 'green'},
+        yaxis="y1"))
+    
+    data.add_trace(go.Bar(
+        x=df.index[-60:][dec],
+        y=df['MACDh_12_26_9'][-60:][dec],
         name='MACDh', marker={'color': 'red'},
         yaxis="y1"))
-
+  
     data.add_trace(go.Scatter(
         x=df.index[-60:],
         y=df['MACDs_12_26_9'][-60:],
