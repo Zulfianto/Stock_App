@@ -623,7 +623,11 @@ username = st.sidebar.text_input('User Name')
 password = st.sidebar.text_input('Password', type='password')
 login = st.sidebar.button('Sign In')
 
-if login:
+if "load_state" not in st.session_state:
+    st.session_state.load_state = False
+
+if login or st.session_state.load_state:
+    st.session_state.load_state = True
     user = auth.sign_in_with_email_and_password(username, password)
     stock = st.sidebar.text_input('Search for a Symbol...', 'NFLX')
     c1, c2 = st.columns(2)
