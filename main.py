@@ -309,7 +309,7 @@ def candlestick(input_value):
         paper_bgcolor='#F5F5F5',
         plot_bgcolor='white',
         height=670,
-        margin=dict(t=1, l=0, r=0, b=0),
+        margin=dict(l=0, r=0, b=0),
         xaxis=dict(range=[df.index[-80], df.index[-1] + timedelta(minutes=6)], rangeslider_visible=False,
                    rangebreaks=[
                        dict(bounds=["sat", "mon"]),
@@ -321,7 +321,7 @@ def candlestick(input_value):
         yaxis2=dict(domain=[0.2, 0.4], side='right', linecolor='grey', linewidth=0.01, ),
         yaxis3=dict(domain=[0.4, 1], side='right', showgrid=True,
                     gridwidth=0.001, gridcolor='grey', linecolor='grey', linewidth=0.01), showlegend=False,
-        title= (f'{input_value} 1 Min')
+        title= (f'{input_value} 1 Min'), title_xanchor='center',
 
 
     )
@@ -563,7 +563,7 @@ def candlestick1(input_value):
         paper_bgcolor='#F5F5F5',
         plot_bgcolor='white',
         height=670,
-        margin=dict(t=1, l=0, r=0, b=0),
+        margin=dict(l=0, r=0, b=0),
         xaxis=dict(range=[df.index[-60], df.index[-1] + timedelta(minutes=20)], rangeslider_visible=False,
                    rangebreaks=[
                        dict(bounds=["sat", "mon"]),
@@ -575,7 +575,7 @@ def candlestick1(input_value):
         yaxis2=dict(domain=[0.2, 0.4], side='right', linecolor='grey', linewidth=0.01, ),
         yaxis3=dict(domain=[0.4, 1], side='right', showgrid=True,
                     gridwidth=0.001, gridcolor='grey', linecolor='grey', linewidth=0.01), showlegend=False,
-        title= (f'{input_value} 5 Min')
+        title= (f'{input_value} 5 Min'), title_xanchor='center',
 
 
     )
