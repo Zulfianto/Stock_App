@@ -309,7 +309,7 @@ def candlestick(input_value):
         paper_bgcolor='#F5F5F5',
         plot_bgcolor='white',
         height=670,
-        margin=dict(t=10, l=0, r=0, b=0),
+        margin=dict(t=30, l=0, r=0, b=0),
         xaxis=dict(range=[df.index[-80], df.index[-1] + timedelta(minutes=6)], rangeslider_visible=False,
                    rangebreaks=[
                        dict(bounds=["sat", "mon"]),
@@ -563,7 +563,7 @@ def candlestick1(input_value):
         paper_bgcolor='#F5F5F5',
         plot_bgcolor='white',
         height=670,
-        margin=dict(t=10, l=0, r=0, b=0),
+        margin=dict(t=30, l=0, r=0, b=0),
         xaxis=dict(range=[df.index[-60], df.index[-1] + timedelta(minutes=20)], rangeslider_visible=False,
                    rangebreaks=[
                        dict(bounds=["sat", "mon"]),
