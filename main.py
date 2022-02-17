@@ -16,6 +16,7 @@ def data_frame(input_value):
     df['BBL_20_2.0'] = df.ta.bbands(length=20)['BBL_20_2.0']
     df['BBU_20_2.0'] = df.ta.bbands(length=20)['BBU_20_2.0']
     df['RSI'] = df.ta.rsi(length=14)
+    df['RSISMA'] = ta.sma(df.RSI, length=50)
     df['MACD_12_26_9'] = df.ta.macd(fast=12, slow=26, signal=9)['MACD_12_26_9']
     df['MACDh_12_26_9'] = df.ta.macd(fast=12, slow=26, signal=9)['MACDh_12_26_9']
     df['MACDs_12_26_9'] = df.ta.macd(fast=12, slow=26, signal=9)['MACDs_12_26_9']
@@ -42,6 +43,7 @@ def data_frame1(input_value):
     df['BBL_20_2.0'] = df.ta.bbands(length=20)['BBL_20_2.0']
     df['BBU_20_2.0'] = df.ta.bbands(length=20)['BBU_20_2.0']
     df['RSI'] = df.ta.rsi(length=14)
+    df['RSISMA'] = ta.sma(df.RSI, length=50)
     df['MACD_12_26_9'] = df.ta.macd(fast=12, slow=26, signal=9)['MACD_12_26_9']
     df['MACDh_12_26_9'] = df.ta.macd(fast=12, slow=26, signal=9)['MACDh_12_26_9']
     df['MACDs_12_26_9'] = df.ta.macd(fast=12, slow=26, signal=9)['MACDs_12_26_9']
@@ -206,6 +208,13 @@ def candlestick(input_value):
         name='RSI',
         mode='lines',
         line=dict(color='black', width=3), yaxis="y2"))
+    
+    data.add_trace(go.Scatter(
+        x=df.index[-80:],
+        y=df['RSISMA'][-80:],
+        name='RSISMA',
+        mode='lines',
+        line=dict(color='gray', width=3), yaxis="y2")
 
     data.add_trace(go.Scatter(
         x=df.index[-80:],
@@ -453,6 +462,13 @@ def candlestick1(input_value):
         name='RSI',
         mode='lines',
         line=dict(color='black', width=3), yaxis="y2"))
+                   
+    data.add_trace(go.Scatter(
+        x=df.index[-80:],
+        y=df['RSISMA'][-80:],
+        name='RSISMA',
+        mode='lines',
+        line=dict(color='gray', width=3), yaxis="y2")
 
     data.add_trace(go.Scatter(
         x=df.index[-60:],
