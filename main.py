@@ -314,7 +314,7 @@ def candlestick(input_value):
                    rangebreaks=[
                        dict(bounds=["sat", "mon"]),
                        dict(bounds=[16, 9.5], pattern="hour"),
-                       # dict(values=["2021-11-25", ])
+                       dict(values=["2022-02-21", ])
                    ]),
         yaxis1=dict(domain=[0, 0.2], side='right', linecolor='grey', linewidth=0.01, gridwidth=0.001,
                     gridcolor='grey', ),
@@ -568,7 +568,7 @@ def candlestick1(input_value):
                    rangebreaks=[
                        dict(bounds=["sat", "mon"]),
                        dict(bounds=[16, 9.5], pattern="hour"),
-                       # dict(values=["2021-11-25", ])
+                       dict(values=["2022-02-21", ])
                    ]),
         yaxis1=dict(domain=[0, 0.2], side='right', linecolor='grey', linewidth=0.01, gridwidth=0.001,
                     gridcolor='grey', ),
