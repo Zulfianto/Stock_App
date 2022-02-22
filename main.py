@@ -214,21 +214,21 @@ def candlestick(input_value):
         y=df['RSISMA'][-80:],
         name='RSISMA',
         mode='lines',
-        line=dict(color='gray', width=3), yaxis="y2"))
+        line=dict(color='gray', width=2), yaxis="y2"))
 
     data.add_trace(go.Scatter(
         x=df.index[-80:],
         y=df['STOCHk_14_3_3'][-80:],
         name='STOCHk_14_3_3',
         mode='lines',
-        line=dict(color='blue', width=3), yaxis="y2"))
+        line=dict(color='blue', width=2), yaxis="y2"))
 
     data.add_trace(go.Scatter(
         x=df.index[-80:],
         y=df['STOCHd_14_3_3'][-80:],
         name='STOCHd_14_3_3',
         mode='lines',
-        line=dict(color='red', width=3), yaxis="y2"))
+        line=dict(color='red', width=2), yaxis="y2"))
 
     data.add_trace(go.Scatter(
         x=df.index[-80:],
@@ -469,21 +469,21 @@ def candlestick1(input_value):
         y=df['RSISMA'][-80:],
         name='RSISMA',
         mode='lines',
-        line=dict(color='gray', width=3), yaxis="y2"))
+        line=dict(color='gray', width=2), yaxis="y2"))
 
     data.add_trace(go.Scatter(
         x=df.index[-60:],
         y=df['STOCHk_14_3_3'][-60:],
         name='STOCHk_14_3_3',
         mode='lines',
-        line=dict(color='blue', width=3), yaxis="y2"))
+        line=dict(color='blue', width=2), yaxis="y2"))
 
     data.add_trace(go.Scatter(
         x=df.index[-60:],
         y=df['STOCHd_14_3_3'][-60:],
         name='STOCHd_14_3_3',
         mode='lines',
-        line=dict(color='red', width=3), yaxis="y2"))
+        line=dict(color='red', width=2), yaxis="y2"))
 
     data.add_trace(go.Scatter(
         x=df.index[-60:],
