@@ -325,7 +325,7 @@ def candlestick(input_value):
 
 
     )
-    chart2.plotly_chart(data, use_container_width=True)
+    chart2.plotly_chart(data, use_container_width=True, config = {'displaylogo': False})
 
 
 def candlestick1(input_value):
@@ -579,7 +579,7 @@ def candlestick1(input_value):
 
 
     )
-    chart1.plotly_chart(data, use_container_width=True)
+    chart1.plotly_chart(data, use_container_width=True, config = {'displaylogo': False})
 
 
 st.set_page_config(layout="wide")
